@@ -1,0 +1,205 @@
+.home-container {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- SECCIÓN HERO --- */
+.hero-section {
+  /* Forzamos un fondo azul/negro muy oscuro detrás de la imagen */
+  background-color: #0a0e13; 
+  /* Capa oscura superpuesta (linear-gradient) sobre la imagen para oscurecerla por completo */
+  background-image: linear-gradient(rgba(10, 14, 19, 0.85), rgba(10, 14, 19, 0.95)), 
+                    url('https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt636f45620b7842fb/5db0507ed66fa06d7e63bde6/RiotX_ChampionLeagueofLegends.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 20px;
+  text-align: center;
+  border-bottom: 1px solid #1e232a;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: #ffffff; /* Blanco puro */
+  text-transform: uppercase;
+  /* Sombra negra alrededor de las letras para asegurar la legibilidad */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+}
+
+.gold-text {
+  color: #c89b3c;
+  /* Brillo dorado para la palabra DOMINA */
+  text-shadow: 0 0 15px rgba(200, 155, 60, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #a0a8b3; /* Un gris un poco más claro para mejor contraste */
+  margin-bottom: 40px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Barra de búsqueda gigante */
+.main-search-box {
+  display: flex;
+  background-color: #111820;
+  border: 2px solid #32281e;
+  border-radius: 4px;
+  max-width: 650px;
+  margin: 0 auto;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+}
+
+.main-search-box:focus-within {
+  border-color: #c89b3c;
+  box-shadow: 0 0 15px rgba(200, 155, 60, 0.4);
+}
+
+.region-select select {
+  background-color: #1a222d;
+  color: #c89b3c;
+  border: none;
+  height: 100%;
+  padding: 0 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+  border-right: 1px solid #32281e;
+}
+
+.main-search-box input {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 15px 20px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+
+.main-search-box input::placeholder {
+  color: #525961;
+}
+
+.btn-search {
+  background-color: #c89b3c;
+  border: none;
+  color: #111820;
+  padding: 0 25px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-search:hover {
+  background-color: #e0b354;
+  color: #000;
+}
+
+/* --- SECCIÓN SECCIONES/FEATURES --- */
+.features-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  width: 100%;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: #111820;
+  border: 1px solid #1e232a;
+  border-top: 3px solid #32281e; /* Borde superior por defecto */
+  padding: 40px 30px;
+  border-radius: 4px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  border-top-color: #c89b3c;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: #c89b3c;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.4rem;
+  color: #f0e6d2;
+  margin-bottom: 15px;
+  letter-spacing: 0.5px;
+}
+
+.feature-card p {
+  color: #88909a;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.card-link {
+  color: #c89b3c;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-link:hover {
+  color: #f0e6d2;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .main-search-box {
+    flex-direction: column;
+    border-radius: 4px;
+  }
+
+  .region-select select {
+    width: 100%;
+    padding: 12px;
+    border-right: none;
+    border-bottom: 1px solid #32281e;
+  }
+
+  .btn-search {
+    padding: 12px;
+  }
+}

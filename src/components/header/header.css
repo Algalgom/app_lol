@@ -1,0 +1,114 @@
+.lol-header {
+  background-color: #111820;
+  border-bottom: 2px solid #c89b3c;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.lol-logo {
+  font-weight: 900;
+  font-size: 1.5rem;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.gold-text {
+  color: #c89b3c;
+}
+
+.silver-text {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.lol-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-link {
+  color: #88909a;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #c89b3c;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #c89b3c;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid #32281e;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.search-bar:focus-within {
+  border-color: #c89b3c;
+  box-shadow: 0 0 8px rgba(200, 155, 60, 0.3);
+}
+
+.search-bar input {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 5px;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  color: #c89b3c;
+  cursor: pointer;
+  padding: 5px;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  .lol-nav ul {
+    gap: 15px;
+  }
+}
