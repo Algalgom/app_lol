@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { Header } from '../components/header/header';
 import { Footer } from '../components/footer/footer';
 import { Home } from "../components/home/home";
-import { RouterOutlet } from "../../node_modules/@angular/router/types/_router_module-chunk";
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
