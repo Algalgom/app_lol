@@ -1,23 +1,25 @@
 <div class="home-container">
   <section class="hero-section">
-    <div class="hero-content">
-      <h1 class="hero-title">Busca. Analiza. <span class="gold-text">Domina.</span></h1>
-      <p class="hero-subtitle">Explora estadísticas en tiempo real, datos de campeones y el historial de tus partidas en League of Legends.</p>
+    <div class="hero-overlay"></div> <div class="hero-content">
+      <h1 class="hero-title">BUSCA. ANALIZA. <span class="gold-text">DOMINA.</span></h1>
       
       <div class="main-search-box">
-        <div class="region-select">
-          <select>
-            <option value="euw">EUW</option>
-            <option value="lan">LAN</option>
-            <option value="las">LAS</option>
-            <option value="na">NA</option>
-            <option value="kr">KR</option>
-          </select>
+        <input type="text" placeholder="INTRODUCE EL NOMBRE DE UN INVOCADOR...">
+        <div class="search-actions">
+          <div class="region-select">
+            <select>
+              <option value="euw">REGIONAL</option>
+              <option value="lan">LAN</option>
+              <option value="las">LAS</option>
+              <option value="na">NA</option>
+              <option value="kr">KR</option>
+            </select>
+            <i class="fa-solid fa-chevron-down region-icon"></i>
+          </div>
+          <button type="button" class="btn-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </div>
-        <input type="text" placeholder="Introduce el nombre de un invocador... (ej. Hide on bush#KR1)">
-        <button type="button" class="btn-search">
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
       </div>
     </div>
   </section>
@@ -26,30 +28,35 @@
     <div class="features-grid">
       
       <div class="feature-card">
-        <div class="card-icon">
-          <i class="fa-solid fa-shield-halved"></i>
+        <div class="card-image-container">
+          <img src="assets/images/home/champions-card.jpg" alt="Campeones de LoL" class="card-image">
         </div>
-        <h3>Campeones</h3>
-        <p>Consulta la lista completa de campeones, sus habilidades, estadísticas base y estados actuales en el meta.</p>
-        <a href="#" class="card-link">Ver campeones <i class="fa-solid fa-chevron-right"></i></a>
+        <div class="card-content">
+          <h3>CAMPEONES</h3>
+          <p>Consulta la lista completa de campeones, sus habilidades, estadísticas base y estados actuales en el meta.</p>
+          <a href="#" class="card-link">Ver campeones <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </div>
+
+      <div class="feature-card highlighted-card"> <div class="card-image-container">
+          <img src="assets/images/home/summoners-card.jpg" alt="Invocador de LoL" class="card-image">
+        </div>
+        <div class="card-content">
+          <h3>INVOCADORES</h3>
+          <p>Analiza el rango, porcentaje de victorias, maestrías y las últimas partidas de cualquier jugador.</p>
+          <a href="#" class="card-link">Buscar perfil <i class="fa-solid fa-chevron-right"></i></a>
+        </div>
       </div>
 
       <div class="feature-card">
-        <div class="card-icon">
-          <i class="fa-solid fa-user-ninja"></i>
+        <div class="card-image-container">
+          <img src="assets/images/home/items-card.jpg" alt="Objetos e Items de LoL" class="card-image">
         </div>
-        <h3>Invocadores</h3>
-        <p>Analiza el rango, porcentaje de victorias, maestrías y las últimas partidas de cualquier jugador.</p>
-        <a href="#" class="card-link">Buscar perfil <i class="fa-solid fa-chevron-right"></i></a>
-      </div>
-
-      <div class="feature-card">
-        <div class="card-icon">
-          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div class="card-content">
+          <h3>OBJETOS e ITEMS</h3>
+          <p>Descubre todos los objetos del juego, sus costes de oro, componentes y recetas para armar las mejores builds.</p>
+          <a href="#" class="card-link">Ver objetos <i class="fa-solid fa-chevron-right"></i></a>
         </div>
-        <h3>Objetos e Items</h3>
-        <p>Descubre todos los objetos del juego, sus costes de oro, componentes y recetas para armar las mejores builds.</p>
-        <a href="#" class="card-link">Ver objetos <i class="fa-solid fa-chevron-right"></i></a>
       </div>
 
     </div>

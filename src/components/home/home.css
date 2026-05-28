@@ -1,108 +1,184 @@
-.home-container {
-  width: 100%;
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
+/* --- VARIABLES GLOBALES (Añadir a styles.css si no existen) --- */
+:root {
+  --bg-dark: #0a0e13;
+  --bg-card: #111820;
+  --gold-hex: #c89b3c;
+  --gold-shadow: rgba(200, 155, 60, 0.5);
+  --text-main: #f0e6d2;
+  --text-muted: #88909a;
+  --transition: all 0.3s ease;
 }
 
-/* --- SECCIÓN HERO --- */
+/* Reset básico para el componente */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.home-container {
+  width: 100%;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+}
+
+/* --- SECCIÓN HERO (CON IMAGEN DE FONDO) --- */
 .hero-section {
-  /* Forzamos un fondo azul/negro muy oscuro detrás de la imagen */
-  background-color: #0a0e13; 
-  /* Capa oscura superpuesta (linear-gradient) sobre la imagen para oscurecerla por completo */
-  background-image: linear-gradient(rgba(10, 14, 19, 0.85), rgba(10, 14, 19, 0.95)), 
-                    url('https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt636f45620b7842fb/5db0507ed66fa06d7e63bde6/RiotX_ChampionLeagueofLegends.jpg');
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Altura grande para impacto visual */
+  /* Reemplazar con la ruta real de la imagen de fondo */
+  background-image: url('assets/images/home/hero-background.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  border-bottom: 1px solid #1e232a;
+  border-bottom: 2px solid var(--gold-hex);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(10, 14, 19, 0.4) 0%, rgba(10, 14, 19, 0.9) 100%);
+  z-index: 1;
 }
 
 .hero-content {
-  max-width: 800px;
-  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-  color: #ffffff; /* Blanco puro */
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  color: #fff;
   text-transform: uppercase;
-  /* Sombra negra alrededor de las letras para asegurar la legibilidad */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .gold-text {
-  color: #c89b3c;
-  /* Brillo dorado para la palabra DOMINA */
-  text-shadow: 0 0 15px rgba(200, 155, 60, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.8);
+  color: var(--gold-hex);
+  text-shadow: 0 0 15px var(--gold-shadow), 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero-subtitle {
-  font-size: 1.2rem;
-  color: #a0a8b3; /* Un gris un poco más claro para mejor contraste */
-  margin-bottom: 40px;
-  line-height: 1.6;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
-}
-
-/* Barra de búsqueda gigante */
+/* --- BARRA DE BÚSQUEDA ORNAMENTADA --- */
 .main-search-box {
   display: flex;
-  background-color: #111820;
-  border: 2px solid #32281e;
+  background-color: rgba(17, 24, 32, 0.9);
+  border: 2px solid #32281e; /* Borde oscuro ornamental */
   border-radius: 4px;
-  max-width: 650px;
+  max-width: 750px;
   margin: 0 auto;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  transition: all 0.3s ease;
+  transition: var(--transition);
+  position: relative;
+}
+
+/* Efecto de borde dorado ornamental */
+.main-search-box::before,
+.main-search-box::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--gold-hex);
+  z-index: 3;
+}
+
+.main-search-box::before {
+  top: -2px;
+  left: -2px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.main-search-box::after {
+  bottom: -2px;
+  right: -2px;
+  border-left: none;
+  border-top: none;
 }
 
 .main-search-box:focus-within {
-  border-color: #c89b3c;
-  box-shadow: 0 0 15px rgba(200, 155, 60, 0.4);
-}
-
-.region-select select {
-  background-color: #1a222d;
-  color: #c89b3c;
-  border: none;
-  height: 100%;
-  padding: 0 20px;
-  font-weight: 700;
-  font-size: 0.9rem;
-  cursor: pointer;
-  outline: none;
-  border-right: 1px solid #32281e;
+  border-color: var(--gold-hex);
+  box-shadow: 0 0 20px var(--gold-shadow);
 }
 
 .main-search-box input {
   flex: 1;
   background: none;
   border: none;
-  padding: 15px 20px;
+  padding: 20px 25px;
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.1rem;
   outline: none;
+  letter-spacing: 0.5px;
 }
 
 .main-search-box input::placeholder {
   color: #525961;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.search-actions {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #32281e;
+}
+
+.region-select {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.region-select select {
+  background-color: #1a222d;
+  color: var(--gold-hex);
+  border: none;
+  height: 100%;
+  padding: 0 40px 0 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  appearance: none; /* Quitar flecha por defecto */
+}
+
+.region-icon {
+  position: absolute;
+  right: 15px;
+  color: var(--gold-hex);
+  font-size: 0.8rem;
+  pointer-events: none;
 }
 
 .btn-search {
-  background-color: #c89b3c;
+  background-color: var(--gold-hex);
   border: none;
   color: #111820;
-  padding: 0 25px;
-  font-size: 1.2rem;
+  padding: 0 30px;
+  height: 100%;
+  font-size: 1.3rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: var(--transition);
 }
 
 .btn-search:hover {
@@ -110,96 +186,194 @@
   color: #000;
 }
 
-/* --- SECCIÓN SECCIONES/FEATURES --- */
+/* --- SECCIÓN SECCIONES/TARJETAS DE CARACTERÍSTICAS --- */
 .features-section {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 80px 20px;
   width: 100%;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  align-items: start;
 }
 
 .feature-card {
-  background-color: #111820;
+  background-color: var(--bg-card);
   border: 1px solid #1e232a;
-  border-top: 3px solid #32281e; /* Borde superior por defecto */
-  padding: 40px 30px;
   border-radius: 4px;
-  text-align: center;
-  transition: all 0.3s ease;
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto de marco ornamental en hover */
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid transparent;
+  transition: var(--transition);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  border-top-color: #c89b3c;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  border-color: var(--gold-hex);
 }
 
-.card-icon {
-  font-size: 2.5rem;
-  color: #c89b3c;
-  margin-bottom: 20px;
+.feature-card:hover::before {
+  border-color: rgba(200, 155, 60, 0.3);
+}
+
+/* Tarjeta central destacada */
+.highlighted-card {
+  border: 2px solid var(--gold-hex);
+  box-shadow: 0 10px 25px var(--gold-shadow);
+  transform: scale(1.03); /* Ligeramente más grande */
+}
+
+.card-image-container {
+  width: 100%;
+  height: 220px; /* Altura fija para las imágenes */
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, var(--bg-card), transparent);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.feature-card:hover .card-image {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  z-index: 3;
 }
 
 .feature-card h3 {
-  font-size: 1.4rem;
-  color: #f0e6d2;
-  margin-bottom: 15px;
-  letter-spacing: 0.5px;
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+}
+
+/* Línea decorativa bajo el título */
+.feature-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background-color: var(--gold-hex);
 }
 
 .feature-card p {
-  color: #88909a;
-  font-size: 0.95rem;
-  line-height: 1.6;
-  margin-bottom: 25px;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
 }
 
 .card-link {
-  color: #c89b3c;
+  color: var(--gold-hex);
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 700;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: all 0.2s ease;
+  letter-spacing: 1px;
+  transition: var(--transition);
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
 
 .card-link:hover {
-  color: #f0e6d2;
+  color: #fff;
+  background-color: rgba(200, 155, 60, 0.1);
+  border-color: rgba(200, 155, 60, 0.3);
 }
 
 /* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  .highlighted-card {
+    transform: scale(1); /* Quitar escala en pantallas más pequeñas */
+  }
+}
+
 @media (max-width: 768px) {
+  .hero-section {
+    height: 60vh;
+  }
   .hero-title {
     font-size: 2.2rem;
+    margin-bottom: 30px;
   }
-  
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
   .main-search-box {
     flex-direction: column;
-    border-radius: 4px;
   }
-
+  .main-search-box input {
+    padding: 15px 20px;
+    text-align: center;
+  }
+  .search-actions {
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid #32281e;
+  }
+  .region-select {
+    flex: 1;
+  }
   .region-select select {
     width: 100%;
-    padding: 12px;
-    border-right: none;
-    border-bottom: 1px solid #32281e;
+    padding: 15px;
+    text-align: center;
   }
-
   .btn-search {
-    padding: 12px;
+    padding: 15px 25px;
+  }
+  .card-image-container {
+    height: 180px;
   }
 }
