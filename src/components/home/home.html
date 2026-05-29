@@ -1,10 +1,13 @@
 <div class="home-container">
+  
   <section class="hero-section">
-    <div class="hero-overlay"></div> <div class="hero-content">
+    <div class="hero-overlay"></div> 
+    <div class="hero-content">
       <h1 class="hero-title">BUSCA. ANALIZA. <span class="gold-text">DOMINA.</span></h1>
       
       <div class="main-search-box">
         <input type="text" placeholder="INTRODUCE EL NOMBRE DE UN INVOCADOR...">
+        
         <div class="search-actions">
           <div class="region-select">
             <select>
@@ -24,41 +27,23 @@
     </div>
   </section>
 
-  <section class="features-section">
-    <div class="features-grid">
-      
-      <div class="feature-card">
-        <div class="card-image-container">
-          <img src="C:\Users\Usuario_Ale\Documents\APP_BD\app_lol\src\components\home\images\Campeones.png" alt="Campeones de LoL" class="card-image">
-        </div>
-        <div class="card-content">
-          <h3>CAMPEONES</h3>
-          <p>Consulta la lista completa de campeones, sus habilidades, estadísticas base y estados actuales en el meta.</p>
-          <a href="#" class="card-link">Ver campeones <i class="fa-solid fa-chevron-right"></i></a>
-        </div>
-      </div>
+  <section class="listado-section">
+    <div class="listado-header">
+      <h2 class="gold-text">Listado de Personajes</h2>
+      <div class="divider"></div>
+    </div>
+    
+    <div class="listado-contenido">
 
-      <div class="feature-card highlighted-card"> <div class="card-image-container">
-          <img src="C:\Users\Usuario_Ale\Documents\APP_BD\app_lol\src\components\home\images\summoners.png" alt="Invocador de LoL" class="card-image">
+      @for(character of characters; track character.id){
+        <div class="character-card">
+          <div class="feature-icon"><img src="{{character.thumbnailUrl}}"></div>
+          <h3 class="character-name">{{ character.name }}</h3>
+          <p>{{character.title}}</p>
         </div>
-        <div class="card-content">
-          <h3>INVOCADORES</h3>
-          <p>Analiza el rango, porcentaje de victorias, maestrías y las últimas partidas de cualquier jugador.</p>
-          <a href="#" class="card-link">Buscar perfil <i class="fa-solid fa-chevron-right"></i></a>
-        </div>
-      </div>
-
-      <div class="feature-card">
-        <div class="card-image-container">
-          <img src="C:\Users\Usuario_Ale\Documents\APP_BD\app_lol\src\components\home\images\items.png" alt="Objetos e Items de LoL" class="card-image">
-        </div>
-        <div class="card-content">
-          <h3>OBJETOS e ITEMS</h3>
-          <p>Descubre todos los objetos del juego, sus costes de oro, componentes y recetas para armar las mejores builds.</p>
-          <a href="#" class="card-link">Ver objetos <i class="fa-solid fa-chevron-right"></i></a>
-        </div>
-      </div>
+      }
 
     </div>
   </section>
+
 </div>

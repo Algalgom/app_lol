@@ -1,54 +1,39 @@
-/* --- VARIABLES GLOBALES (Añadir a styles.css si no existen) --- */
-:root {
-  --bg-dark: #0a0e13;
-  --bg-card: #111820;
-  --gold-hex: #c89b3c;
-  --gold-shadow: rgba(200, 155, 60, 0.5);
-  --text-main: #f0e6d2;
-  --text-muted: #88909a;
-  --transition: all 0.3s ease;
-}
-
-/* Reset básico para el componente */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-}
-
 .home-container {
   width: 100%;
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  overflow-x: hidden;
+  min-height: 80vh; /* Ocupa la mayor parte de la pantalla visible */
+  background-color: #0a0e13;
+  display: flex;
+  flex-direction: column;
 }
 
-/* --- SECCIÓN HERO (CON IMAGEN DE FONDO) --- */
+/* --- SECCIÓN HERO --- */
 .hero-section {
   position: relative;
   width: 100%;
-  height: 80vh; /* Altura grande para impacto visual */
-  /* Reemplazar con la ruta real de la imagen de fondo */
-  background-image: src('C:\Users\Usuario_Ale\Documents\APP_BD\app_lol\src\components\home\images\Campeones.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  flex: 1; /* Hace que el hero se expanda para rellenar todo el espacio disponible */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-bottom: 2px solid var(--gold-hex);
+  
+  /* Imagen oficial de Riot en alta definición */
+  background-image: url('https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt636f45620b7842fb/5db0507ed66fa06d7e63bde6/RiotX_ChampionLeagueofLegends.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  border-bottom: 2px solid #c89b3c;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
+/* Filtro oscuro para que las letras blancas se lean perfectamente */
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(10, 14, 19, 0.4) 0%, rgba(10, 14, 19, 0.9) 100%);
+  background: radial-gradient(circle, rgba(10, 14, 19, 0.5) 0%, rgba(10, 14, 19, 0.9) 100%);
   z-index: 1;
 }
 
@@ -56,6 +41,7 @@
   position: relative;
   z-index: 2;
   max-width: 900px;
+  width: 100%;
   padding: 0 20px;
 }
 
@@ -70,32 +56,32 @@
 }
 
 .gold-text {
-  color: var(--gold-hex);
-  text-shadow: 0 0 15px var(--gold-shadow), 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: #c89b3c;
+  text-shadow: 0 0 15px rgba(200, 155, 60, 0.6), 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/* --- BARRA DE BÚSQUEDA ORNAMENTADA --- */
+/* --- BARRA DE BÚSQUEDA --- */
 .main-search-box {
   display: flex;
-  background-color: rgba(17, 24, 32, 0.9);
-  border: 2px solid #32281e; /* Borde oscuro ornamental */
+  background-color: rgba(17, 24, 32, 0.95);
+  border: 2px solid #32281e;
   border-radius: 4px;
   max-width: 750px;
   margin: 0 auto;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-  transition: var(--transition);
+  transition: all 0.3s ease;
   position: relative;
 }
 
-/* Efecto de borde dorado ornamental */
+/* Esquinas doradas ornamentales */
 .main-search-box::before,
 .main-search-box::after {
   content: '';
   position: absolute;
   width: 10px;
   height: 10px;
-  border: 2px solid var(--gold-hex);
+  border: 2px solid #c89b3c;
   z-index: 3;
 }
 
@@ -114,8 +100,8 @@
 }
 
 .main-search-box:focus-within {
-  border-color: var(--gold-hex);
-  box-shadow: 0 0 20px var(--gold-shadow);
+  border-color: #c89b3c;
+  box-shadow: 0 0 20px rgba(200, 155, 60, 0.4);
 }
 
 .main-search-box input {
@@ -150,7 +136,7 @@
 
 .region-select select {
   background-color: #1a222d;
-  color: var(--gold-hex);
+  color: #c89b3c;
   border: none;
   height: 100%;
   padding: 0 40px 0 20px;
@@ -159,26 +145,26 @@
   text-transform: uppercase;
   cursor: pointer;
   outline: none;
-  appearance: none; /* Quitar flecha por defecto */
+  appearance: none;
 }
 
 .region-icon {
   position: absolute;
   right: 15px;
-  color: var(--gold-hex);
+  color: #c89b3c;
   font-size: 0.8rem;
   pointer-events: none;
 }
 
 .btn-search {
-  background-color: var(--gold-hex);
+  background-color: #c89b3c;
   border: none;
   color: #111820;
   padding: 0 30px;
   height: 100%;
   font-size: 1.3rem;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s ease;
 }
 
 .btn-search:hover {
@@ -186,166 +172,14 @@
   color: #000;
 }
 
-/* --- SECCIÓN SECCIONES/TARJETAS DE CARACTERÍSTICAS --- */
-.features-section {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 80px 20px;
-  width: 100%;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
-  align-items: start;
-}
-
-.feature-card {
-  background-color: var(--bg-card);
-  border: 1px solid #1e232a;
-  border-radius: 4px;
-  overflow: hidden;
-  transition: var(--transition);
-  position: relative;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Efecto de marco ornamental en hover */
-.feature-card::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
-  border: 1px solid transparent;
-  transition: var(--transition);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-  border-color: var(--gold-hex);
-}
-
-.feature-card:hover::before {
-  border-color: rgba(200, 155, 60, 0.3);
-}
-
-/* Tarjeta central destacada */
-.highlighted-card {
-  border: 2px solid var(--gold-hex);
-  box-shadow: 0 10px 25px var(--gold-shadow);
-  transform: scale(1.03); /* Ligeramente más grande */
-}
-
-.card-image-container {
-  width: 100%;
-  height: 220px; /* Altura fija para las imágenes */
-  overflow: hidden;
-  position: relative;
-}
-
-.card-image-container::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(to top, var(--bg-card), transparent);
-}
-
-.card-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition);
-}
-
-.feature-card:hover .card-image {
-  transform: scale(1.1);
-}
-
-.card-content {
-  padding: 30px;
-  text-align: center;
-  position: relative;
-  z-index: 3;
-}
-
-.feature-card h3 {
-  font-size: 1.6rem;
-  color: #fff;
-  margin-bottom: 20px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  position: relative;
-  display: inline-block;
-}
-
-/* Línea decorativa bajo el título */
-.feature-card h3::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background-color: var(--gold-hex);
-}
-
-.feature-card p {
-  color: var(--text-muted);
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
-
-.card-link {
-  color: var(--gold-hex);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: var(--transition);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-
-.card-link:hover {
-  color: #fff;
-  background-color: rgba(200, 155, 60, 0.1);
-  border-color: rgba(200, 155, 60, 0.3);
-}
-
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 2.8rem;
   }
-  .features-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-  }
-  .highlighted-card {
-    transform: scale(1); /* Quitar escala en pantallas más pequeñas */
-  }
 }
 
 @media (max-width: 768px) {
-  .hero-section {
-    height: 60vh;
-  }
   .hero-title {
     font-size: 2.2rem;
     margin-bottom: 30px;
@@ -372,8 +206,5 @@
   }
   .btn-search {
     padding: 15px 25px;
-  }
-  .card-image-container {
-    height: 180px;
   }
 }
