@@ -30,7 +30,7 @@
   width: 100%;
   height: 80vh; /* Altura grande para impacto visual */
   /* Reemplazar con la ruta real de la imagen de fondo */
-  background-image: url('assets/images/home/hero-background.jpg');
+  background-image: src('C:\Users\Usuario_Ale\Documents\APP_BD\app_lol\src\components\home\images\Campeones.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
