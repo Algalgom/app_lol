@@ -208,3 +208,96 @@
     padding: 15px 25px;
   }
 }
+
+/* --- SECCIÓN LISTADO DE PERSONAJES --- */
+.listado-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.listado-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.listado-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.divider {
+  width: 100px;
+  height: 3px;
+  background-color: #c89b3c;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(200, 155, 60, 0.8);
+}
+
+/* Contenedor en Grid que ajusta las columnas automáticamente */
+.listado-contenido {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+/* --- TARJETAS DE PERSONAJES (STYLE RIOT) --- */
+.character-card {
+  background-color: #121921;
+  border: 1px solid #32281e;
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Efecto Hover espectacular estilo Hextech */
+.character-card:hover {
+  transform: translateY(-5px);
+  border-color: #c89b3c;
+  box-shadow: 0 10px 20px rgba(200, 155, 60, 0.2);
+}
+
+.feature-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 15px auto;
+  border-radius: 50%;
+  border: 2px solid #32281e;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+  background-color: #0a0e13;
+}
+
+.character-card:hover .feature-icon {
+  border-color: #c89b3c;
+}
+
+.feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.character-name {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  letter-spacing: 0.5px;
+}
+
+.character-card p {
+  color: #a0aab5;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+}

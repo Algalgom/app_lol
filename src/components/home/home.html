@@ -38,7 +38,7 @@
       @for(character of characters; track character.id){
         <div class="character-card">
           <div class="feature-icon"><img src="{{character.thumbnailUrl}}"></div>
-          <h3 class="character-name">{{ character.name }}</h3>
+          <h3><a href="character/{{character.id}}">{{ character.name }}</a></h3>
           <p>{{character.title}}</p>
         </div>
       }
