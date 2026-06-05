@@ -1,0 +1,260 @@
+/* ==========================================================================
+   1. CONTENEDOR PRINCIPAL Y FONDOS (Efecto Cinemático)
+   ========================================================================== */
+.details-container {
+  position: relative;
+  min-height: calc(100vh - 80px); /* Ajusta según la altura de tu header */
+  width: 100%;
+  background-color: #010a13; /* El negro azulado oficial de Riot */
+  color: #f0e6d2;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* Imagen gigante difuminada detrás */
+.blur-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 20%;
+  filter: blur(20px) brightness(0.25) saturate(1.2);
+  transform: scale(1.05); /* Evita bordes blancos por el blur */
+  z-index: 1;
+}
+
+/* Capa de degradado oscuro para dar contraste */
+.details-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent 20%, #010a13 90%);
+  z-index: 2;
+}
+
+/* Wrapper que contiene todo el diseño */
+.details-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ==========================================================================
+   2. BOTÓN VOLVER ATRÁS
+   ========================================================================== */
+.btn-back {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #c8aa6e; /* Dorado LoL */
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  background: rgba(1, 10, 19, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+.btn-back:hover {
+  color: #f0e6d2;
+  border-color: #c8aa6e;
+  box-shadow: 0 0 10px rgba(200, 170, 110, 0.3);
+  transform: translateX(-5px);
+}
+
+/* ==========================================================================
+   3. TARJETA DEL PERFIL DEL CAMPEÓN
+   ========================================================================== */
+.character-profile {
+  background: linear-gradient(135deg, rgba(2, 14, 24, 0.85) 0%, rgba(1, 10, 19, 0.95) 100%);
+  border: 1px solid #c8aa6e; /* Borde dorado característico */
+  border-radius: 8px;
+  padding: 40px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
+              inset 0 0 30px rgba(200, 170, 110, 0.05);
+}
+
+/* Contenedor de la foto principal */
+.profile-image-box {
+  flex-shrink: 0;
+  width: 220px;
+  height: 220px;
+  border: 2px solid #c8aa6e;
+  padding: 6px;
+  background: #010a13;
+  box-shadow: 0 0 25px rgba(200, 170, 110, 0.2);
+  border-radius: 4px;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Información textual */
+.profile-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.character-id {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #a0937d;
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.character-name {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.character-title {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #a0937d;
+  font-style: italic;
+  margin: 5px 0 0 0;
+  text-transform: capitalize;
+}
+
+/* Separador elegante */
+.divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, #c8aa6e 0%, rgba(200, 170, 110, 0.2) 80%, transparent 100%);
+  margin: 20px 0;
+}
+
+/* Sección de Roles */
+.roles-section h3 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #a0937d;
+  margin: 0 0 12px 0;
+}
+
+.tags-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tag-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 6px 16px;
+  background-color: #1e2328;
+  border: 1px solid #c8aa6e;
+  color: #c8aa6e;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.tag-badge:hover {
+  background-color: #c8aa6e;
+  color: #010a13;
+  box-shadow: 0 0 10px rgba(200, 170, 110, 0.5);
+}
+
+/* Clases de utilidad de color */
+.gold-text {
+  color: #c8aa6e;
+  background: linear-gradient(to bottom, #f0e6d2 0%, #c8aa6e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================================================
+   4. PANTALLA DE CARGA (Spinner)
+   ========================================================================== */
+.loading-box {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(200, 170, 110, 0.1);
+  border-radius: 50%;
+  border-top-color: #c8aa6e;
+  animation: spin 1s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(200, 170, 110, 0.2);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   5. RESPONSIVE DESIGN (Para Móviles y Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .character-profile {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .profile-image-box {
+    width: 180px;
+    height: 180px;
+  }
+
+  .character-name {
+    font-size: 2.2rem;
+  }
+
+  .divider {
+    background: linear-gradient(90deg, transparent 0%, #c8aa6e 50%, transparent 100%);
+  }
+
+  .tags-container {
+    justify-content: center;
+  }
+
+  .btn-back {
+    align-self: center;
+  }
+}

@@ -1,1 +1,44 @@
-<p>character-detail works!</p>
+<div class="details-container">
+  @if (character()) {
+    
+    <div class="blur-background" [style.background-image]="'url(' + character()?.thumbnailUrl + ')'"></div>
+    <div class="details-overlay"></div>
+
+    <div class="details-wrapper">
+      
+      <a href="" class="btn-back">
+        <i class="fa-solid fa-arrow-left"></i> Volver al listado
+      </a>
+
+      <div class="character-profile">
+        <div class="profile-image-box">
+          <img [src]="character()?.thumbnailUrl" [alt]="character()?.name" class="profile-img">
+        </div>
+
+        <div class="profile-info">
+          <span class="character-id">CHAMPION ID: {{ character()?.championId }}</span>
+          <h1 class="character-name gold-text">{{ character()?.name }}</h1>
+          <h2 class="character-title">{{ character()?.title }}</h2>
+          
+          <div class="divider"></div>
+
+          <div class="roles-section">
+            <h3>Roles asignados</h3>
+            <div class="tags-container">
+              @for (rol of character()?.roles; track $index) {
+                <span class="tag-badge gold-badge">{{ rol }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  } @else {
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <p class="gold-text">Invocando datos del campeón desde la Grieta...</p>
+    </div>
+  }
+</div>
