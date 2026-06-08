@@ -1,0 +1,38 @@
+<div class="multiroles-container">
+  
+  <div class="section-header">
+    <h1 class="gold-text">Campeones Polivalentes</h1>
+    <p class="section-subtitle">Especialistas entrenados para dominar múltiples posiciones.</p>
+    <div class="header-line"></div>
+  </div>
+
+  <div class="grid-characters">
+    @for (character of characters(); track character.id) {
+      <div class="character-card">
+        
+        <div class="card-image-wrapper">
+          <img [src]="character.thumbnailUrl" [alt]="character.name" class="card-img">
+          <div class="card-overlay"></div>
+        </div>
+
+        <div class="card-content">
+          <span class="champion-id-tag">ID #{{ character.championId }}</span>
+          
+          <h3 class="character-name">
+            <a [routerLink]="['/character', character.id]">{{ character.name }}</a>
+          </h3>
+          
+          <p class="character-title">{{ character.title }}</p>
+          
+          <div class="roles-tags-container">
+            @for (rol of character.roles; track $index) {
+              <span class="role-badge">{{ rol }}</span>
+            }
+          </div>
+        </div>
+
+      </div>
+    }
+  </div>
+
+</div>

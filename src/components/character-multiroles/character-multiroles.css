@@ -1,0 +1,217 @@
+/* ==========================================================================
+   1. CONTENEDOR GENERAL
+   ========================================================================== */
+.multiroles-container {
+  min-height: calc(100vh - 80px);
+  background-color: #010a13; /* Negro oficial de Riot */
+  color: #f0e6d2;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  padding: 60px 40px;
+  box-sizing: border-box;
+}
+
+/* Cabecera de sección */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 10px 0;
+}
+
+.section-subtitle {
+  color: #a0937d;
+  font-size: 1.1rem;
+  font-style: italic;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.header-line {
+  height: 2px;
+  width: 100px;
+  background: linear-gradient(90deg, transparent, #c8aa6e, transparent);
+  margin: 20px auto 0 auto;
+}
+
+/* ==========================================================================
+   2. REJILLA DE PERSONAJES (CSS GRID RESPONSIVE)
+   ========================================================================== */
+.grid-characters {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   3. TARJETA INDIVIDUAL (CHARACTER CARD)
+   ========================================================================== */
+.character-card {
+  background: linear-gradient(135deg, rgba(2, 14, 24, 0.9) 0%, rgba(1, 10, 19, 0.95) 100%);
+  border: 1px solid #1e2328;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efectos hover globales de la tarjeta */
+.character-card:hover {
+  transform: translateY(-8px);
+  border-color: #c8aa6e; /* Iluminación de borde dorado */
+  box-shadow: 0 15px 30px rgba(200, 170, 110, 0.15), 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Contenedor de la foto de la tarjeta */
+.card-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* Cuadrado perfecto 1:1 */
+  overflow: hidden;
+  background-color: #0a0e13;
+}
+
+.card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.character-card:hover .card-img {
+  transform: scale(1.08); /* Zoom suave al pasar el ratón */
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 60%, rgba(1, 10, 19, 0.8) 100%);
+}
+
+/* Cuerpo de texto interno */
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.champion-id-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #a0937d;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+.character-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+  text-transform: uppercase;
+}
+
+.character-name a {
+  color: #f0e6d2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.character-name a:hover {
+  color: #c8aa6e; /* El enlace cambia a dorado */
+}
+
+.character-title {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #a0937d;
+  margin: 0 0 16px 0;
+  text-transform: capitalize;
+}
+
+/* ==========================================================================
+   4. ETIQUETAS DE ROLES (BADGES)
+   ========================================================================== */
+.roles-tags-container {
+  margin-top: auto; /* Empuja las etiquetas al fondo de la tarjeta */
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.role-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  background-color: #121c24;
+  border: 1px solid #32281e;
+  color: #cdbe91;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.character-card:hover .role-badge {
+  border-color: #c8aa6e;
+  color: #f0e6d2;
+  background-color: rgba(200, 170, 110, 0.1);
+}
+
+/* ==========================================================================
+   5. CLASES AUXILIARES Y ESTADOS VACÍOS
+   ========================================================================== */
+.gold-text {
+  color: #c8aa6e;
+  background: linear-gradient(to bottom, #f0e6d2 0%, #c8aa6e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.empty-state {
+  grid-column: 1 / -1; /* Ocupa todo el ancho de la rejilla */
+  text-align: center;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(200, 170, 110, 0.1);
+  border-radius: 50%;
+  border-top-color: #c8aa6e;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 480px) {
+  .multiroles-container {
+    padding: 40px 20px;
+  }
+  .section-header h1 {
+    font-size: 2rem;
+  }
+}
