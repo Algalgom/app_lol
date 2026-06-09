@@ -1,0 +1,32 @@
+<div class="tanks-container">
+  <div class="tanks-header">
+    <h1>Tanques e Iniciadores</h1>
+    <p>La primera línea de defensa de la Grieta del Invocador</p>
+  </div>
+
+  <div class="tanks-grid">
+    @for (character of characters(); track character.id) {
+      <div class="tank-card" [routerLink]="['/character', character.id]">
+        
+        <div class="tank-card-image-wrapper">
+          <span class="tank-badge">Tanque</span>
+          <img 
+            [src]="character.thumbnailUrl" 
+            [alt]="character.name" 
+            class="tank-card-image"
+          />
+        </div>
+
+        <div class="tank-card-info">
+          <h2 class="tank-name">{{ character.name }}</h2>
+          <p class="tank-title">{{ character.title }}</p>
+        </div>
+
+      </div>
+    } @empty {
+      <div class="tanks-loading">
+        No se han encontrado campeones asignados a esta sección...
+      </div>
+    }
+  </div>
+</div>

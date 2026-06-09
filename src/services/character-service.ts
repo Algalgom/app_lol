@@ -25,4 +25,8 @@ export class CharacterService {
     public getCharactersWithMultipleRoles(): Observable<Character[]>{
       return this._http.get<Character[]>(this._baseUrl + "/characters/multirole");
     }
+
+    public getCharacterWithTankRoles(): Observable<Character[]>{
+      return this._http.get<Character[]>(this._baseUrl + "/characters/tanks");
+    }
 }

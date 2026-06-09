@@ -1,0 +1,189 @@
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL DE LA SECCIÓN TANQUES
+   ========================================================================== */
+.tanks-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 80vh;
+  background: radial-gradient(circle at top, #0a1428 0%, #010a13 100%);
+}
+
+/* Cabecera estilizada con la tipografía y colores de Riot */
+.tanks-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.tanks-header h1 {
+  font-family: 'BeaufortforLoL', 'Arial Black', sans-serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #f0e6d2; /* Dorado claro oficial */
+  text-shadow: 0 0 10px rgba(240, 230, 210, 0.3), 0 4px 8px rgba(0, 0, 0, 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.tanks-header p {
+  color: #a09b8c; /* Dorado apagado/texto secundario */
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Línea divisoria Hextech decorativa debajo del título */
+.tanks-header::after {
+  content: '';
+  display: block;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c89b3c, transparent);
+  margin: 1rem auto 0;
+}
+
+/* ==========================================================================
+   GRID DE TARJETAS (Mantiene el responsive de tu app)
+   ========================================================================== */
+.tanks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2.5rem;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* ==========================================================================
+   TARJETA DE CAMPEÓN TANQUE (Robusta, estilo Escudo/Armadura)
+   ========================================================================== */
+.tank-card {
+  background: #091420;
+  border: 2px solid #785a28; /* Borde dorado oscuro simulando metal */
+  border-radius: 4px; /* Esquinas casi rectas, estilo interfaz de Riot */
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efecto Hover: Simula la activación de un escudo o energía mágica */
+.tank-card:hover {
+  transform: translateY(-8px);
+  border-color: #c89b3c; /* Dorado brillante */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.8), 
+              0 0 15px rgba(200, 155, 60, 0.2); /* Resplandor dorado tenue */
+}
+
+/* Contenedor de la Imagen del Campeón */
+.tank-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 120%; /* Proporción vertical imponente */
+  overflow: hidden;
+  background-color: #010a13;
+}
+
+.tank-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: brightness(0.85) contrast(1.1);
+}
+
+/* Al pasar el ratón, la imagen se acerca suavemente */
+.tank-card:hover .tank-card-image {
+  transform: scale(1.05);
+  filter: brightness(1) contrast(1.1);
+}
+
+/* Superposición oscura inferior para que el texto se lea perfectamente */
+.tank-card-image-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  background: linear-gradient(to top, #091420 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Badge o etiqueta flotante de Rol / Defensa */
+.tank-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(1, 10, 19, 0.85);
+  border: 1px solid #c89b3c;
+  color: #f0e6d2;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+/* ==========================================================================
+   INFORMACIÓN DE LA TARJETA (Nombre y Título)
+   ========================================================================== */
+.tank-card-info {
+  padding: 1.25rem;
+  background: #091420;
+  text-align: center;
+  border-top: 1px solid rgba(120, 90, 40, 0.3);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tank-name {
+  font-family: 'BeaufortforLoL', 'Arial Black', sans-serif;
+  font-size: 1.4rem;
+  color: #f0e6d2;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 0.25rem 0;
+  transition: color 0.3s ease;
+}
+
+.tank-card:hover .tank-name {
+  color: #fffcf5; /* El nombre brilla un poco más al hacer hover */
+}
+
+.tank-title {
+  font-size: 0.8rem;
+  color: #00eaff; /* Azul celeste mágico/Hextech para el título del campeón */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ==========================================================================
+   EFECTO DE CARGA O SKELETON (Opcional, por si pones Loading)
+   ========================================================================== */
+.tanks-loading {
+  text-align: center;
+  color: #c89b3c;
+  font-size: 1.5rem;
+  margin-top: 5rem;
+  font-family: 'BeaufortforLoL', sans-serif;
+  letter-spacing: 2px;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
